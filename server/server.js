@@ -1,8 +1,9 @@
 const express = require('express')
 const cors = require('cors')
-const Sequelize = require('sequelize')
-const sequelize = require('sequelize')
-require('dotenv').consig()
+const axios = require('axios')
+// const Sequelize = require('sequelize')
+// const sequelize = require('sequelize')
+// require('dotenv').consig()
 
 // const sequelize = new Sequelize(CONNECTION_STRING, {
 //     dialect: 'postgres',
@@ -30,9 +31,15 @@ app.get('/js', (req, res) => {
     res.sendFile(path.join(__dirname, "./public/index.js"))
 })
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "./server/server.js"))
-})
+// app.get('/js', (req, res) => {
+//     res.sendFile(path.join(__dirname, "./server/server.js"))
+// })
+
+const { getQuote, createNewBudget } = require('./controller')
+
+
+app.get("/api/quote/", getQuote);
+app.post("/api/budget", createNewBudget);
 
 const port = process.env.PORT || 4005;
 

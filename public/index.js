@@ -124,3 +124,49 @@ class Calculator {
     calculator.delete()
     calculator.updateDisplay()
   })
+
+//   const btn = document.querySelector('button');
+
+// const alertMe = () => {
+//     alert(`Pure mathematics is, in its way, the poetry of logical ideas.
+//     — Albert Einstein`, `Mathematics is the most beautiful and most powerful creation of the human spirit.
+//     — Stefan Banach`)
+// };
+
+// btn.addEventListener("click", alertMe);
+
+const quoteBtn = document.getElementById("quoteButton")
+const budgetForm = document.getElementById("budget-form")
+const priceInput = document.getElementsById('price')
+const saveInput = document.getElementById('what to save for')
+
+const getQuote = () => {
+    axios.get("http://localhost:4005/api/quote/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+};
+
+const postBudget = (event) => {
+  event.preventDefault()
+  peopleSection.innerHTML = ''
+
+  const body = {
+      name: priceInput.value,
+      power: whatToSaveForInput.value
+  }
+
+  axios.post("http://localhost:4005/api/budget/", body)
+      .then((response) => {
+          const data = response.data;
+          showPriceOnDom(data)
+      })
+
+      priceInput.value = ''
+      whatToSaveForInput.value = ''
+}
+
+quoteBtn.addEventListener('click', getQuote)
+budgetForm.addEventListener('budget', postBudget)
+
