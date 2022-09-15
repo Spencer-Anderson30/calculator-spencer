@@ -136,9 +136,9 @@ class Calculator {
 // btn.addEventListener("click", alertMe);
 
 const quoteBtn = document.getElementById("quoteButton")
-const budgetForm = document.getElementById("budget-form")
-const priceInput = document.getElementsById('price')
-const saveInput = document.getElementById('what to save for')
+// const budgetForm = document.getElementById("budget-form")
+// const priceInput = document.getElementsById('price')
+// const saveInput = document.getElementById('what to save for')
 
 const getQuote = () => {
     axios.get("http://localhost:4005/api/quote/")
@@ -148,25 +148,25 @@ const getQuote = () => {
     });
 };
 
-const postBudget = (event) => {
-  event.preventDefault()
-  peopleSection.innerHTML = ''
+// const postBudget = (event) => {
+//   event.preventDefault()
+//   peopleSection.innerHTML = ''
 
-  const body = {
-      name: priceInput.value,
-      power: whatToSaveForInput.value
-  }
+//   const body = {
+//       name: priceInput.value,
+//       power: whatToSaveForInput.value
+//   }
 
-  axios.post("http://localhost:4005/api/budget/", body)
-      .then((response) => {
-          const data = response.data;
-          showPriceOnDom(data)
-      })
+//   axios.post("http://localhost:4005/api/budget/", body)
+//       .then((response) => {
+//           const data = response.data;
+//           showPriceOnDom(data)
+//       })
 
-      priceInput.value = ''
-      whatToSaveForInput.value = ''
-}
+//       priceInput.value = ''
+//       whatToSaveForInput.value = ''
+// }
 
 quoteBtn.addEventListener('click', getQuote)
-budgetForm.addEventListener('budget', postBudget)
+// budgetForm.addEventListener('budget', postBudget)
 

@@ -1,7 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
-// const axios = require('axios')
+const axios = require('axios')
+const path= require('path')
 
 const app = express()
 app.use(cors())
@@ -9,15 +10,15 @@ app.use(express.json())
 
 //endpoints
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/index.html"))
+    res.sendFile(path.join(__dirname, "../public/index.html"))
 })
 
 app.get('/css', (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/styles.css"))
+    res.sendFile(path.join(__dirname, "../public/styles.css"))
 })
 
 app.get('/js', (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/index.js"))
+    res.sendFile(path.join(__dirname, "../public/index.js"))
 })
 
 // app.get('/js', (req, res) => {
