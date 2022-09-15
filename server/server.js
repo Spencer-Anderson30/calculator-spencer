@@ -1,18 +1,7 @@
 const express = require('express')
 const cors = require('cors')
-const axios = require('axios')
-// const Sequelize = require('sequelize')
-// const sequelize = require('sequelize')
-// require('dotenv').consig()
-
-// const sequelize = new Sequelize(CONNECTION_STRING, {
-//     dialect: 'postgres',
-//     dialectOptions: {
-//         ssl: {
-//             rejectUnauthorized: false,
-//         }
-//     }
-// })
+require('dotenv').config()
+// const axios = require('axios')
 
 const app = express()
 app.use(cors())
@@ -41,7 +30,7 @@ const { getQuote, createNewBudget } = require('./controller')
 app.get("/api/quote/", getQuote);
 app.post("/api/budget", createNewBudget);
 
-const port = process.env.PORT || 4005;
+const port = process.env.PORT
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
