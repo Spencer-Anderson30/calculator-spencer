@@ -1,3 +1,5 @@
+const db = []
+
 module.exports = {
 
     getQuote: (req, res) => {
@@ -11,11 +13,11 @@ module.exports = {
         res.status(200).send(randomQuote);
     },
     createNewBudget: (req, res) => {
-        let {price, whatToSaveFor} = req.body
+        let {price, item} = req.body
 
         db.push({
             price: price, 
-            whatToSaveFor: isNaN(+$$) ? 1 : +power
+            item: item
         })
 
         res.send(db)
