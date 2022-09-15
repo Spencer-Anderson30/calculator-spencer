@@ -141,7 +141,7 @@ const quoteBtn = document.getElementById("quoteButton")
 // const saveInput = document.getElementById('what to save for')
 
 const getQuote = () => {
-    axios.get("http://localhost:4005/api/quote/")
+    axios.get("/api/quote/")
         .then(res => {
             const data = res.data;
             alert(data);
@@ -157,7 +157,7 @@ const getQuote = () => {
 //       power: whatToSaveForInput.value
 //   }
 
-//   axios.post("http://localhost:4005/api/budget/", body)
+//   axios.post("/api/budget/", body)
 //       .then((response) => {
 //           const data = response.data;
 //           showPriceOnDom(data)
